@@ -14,6 +14,12 @@ public class Item {
         this.quality = quality;
     }
 
+    public static void decreaseQualityByOne(Item item) {
+        if (item.getQuality() > 0) {
+            item.setQuality(item.getQuality() - 1);
+        }
+    }
+
     public void setSellIn(int sellIn) { this.sellIn = sellIn; }
 
     public void setQuality(int quality) { this.quality = quality; }
