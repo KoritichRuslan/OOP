@@ -1,9 +1,9 @@
 package com.gildedrose;
 public class Item {
 
-    public String name;
-    public int sellIn;
-    public int quality;
+    private String name;
+    private int sellIn;
+    private int quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
