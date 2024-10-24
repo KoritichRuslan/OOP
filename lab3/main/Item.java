@@ -14,9 +14,23 @@ public class Item {
         this.quality = quality;
     }
 
+    public static void increaseQualityByOne(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+        }
+    }
+
     public static void decreaseQualityByOne(Item item) {
         if (item.getQuality() > 0) {
             item.setQuality(item.getQuality() - 1);
+        }
+    }
+
+    static void updateQuality(Item item) {
+        decreaseQualityByOne(item);
+        item.setSellIn(item.getSellIn() - 1);
+        if (item.getSellIn() < 0) {
+            decreaseQualityByOne(item);
         }
     }
 
@@ -30,14 +44,8 @@ public class Item {
 
     public int getQuality() { return quality; }
 
-    public static void increaseQualityByOne(Item item) {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
-        }
-    }
-
     @Override
-   public String toString() {
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 }
